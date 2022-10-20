@@ -14,21 +14,20 @@ public class EpicDoubleHashMap <K extends Number, V, T> {
     public HashMap<K, V> getFirstMap1() {
         return mapValue1;
     }
-    public String addFirstType(K key, V value){
-       return (String) mapValue1.put(key, value);
+    public void addFirstType(K key, V value){
+        if (mapValue1.containsKey(key) || mapValue2.containsKey(key))
+       mapValue1.put(key, value);
     }
-    public String addSecondType(K key, T value2){
-       return (String) mapValue2.put(key, value2);
+    public void addSecondType(K key, T value2){
+        mapValue2.put(key, value2);
     }
     public HashMap<K, T> getSecondMap2() {
         return mapValue2;
     }
 
-    public Object addTwo(K key, V value, T value2) {
+    public void addTwo(K key, V value, T value2) {
         mapValue1.put(key, value);
         mapValue2.put(key, value2);
-
-        return null;
     }
 
     public void removeFirstType(K key){
